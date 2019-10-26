@@ -1,4 +1,4 @@
-"""personal_portfolio URL Configuration
+"""django_web_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('home.urls')),
     path('admin/', admin.site.urls),
     path('projects/', include("projects.urls")),
     path("blog/", include("blog.urls")),
+    path('about/', include('about.urls')),
+    path('contact/', include('contact.urls')),
 ]
