@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'about',
     'contact',
+    'widget_tweaks',
 
 ]
 
@@ -124,3 +125,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Email messages from the site
+
+## Uncomment for PROD
+# TODO Add password as env variable
+
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'email@gmail.com'
+# EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
+# DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+# For development
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
