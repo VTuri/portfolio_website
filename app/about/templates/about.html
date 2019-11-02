@@ -1,4 +1,5 @@
 {% extends "base_fluid.html" %}
+{% load static %}
 {% block page_content %}
 
 <head>
@@ -27,9 +28,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4"><img class="img-fluid d-block mx-auto"
-                                       src="https://static.pingendo.com/img-placeholder-1.svg" width="200"></div>
+                                       src="{% static 'img/github-logo.png'%}" width="200"></div>
             <div class="col-md-8">
-                <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
+                <h2 class="">What are my goals? <small class="text-muted">---</small></h2>
                 <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to
                     dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with
                     longing.</p>
@@ -42,14 +43,14 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
+                    <h2 class="">Who am I? <small class="text-muted"></small></h2>
                     <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem
                         to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often
                         think with longing.</p>
                 </div>
             </div>
             <div class="col-md-4"><img class="img-fluid d-block mx-auto"
-                                       src="https://static.pingendo.com/img-placeholder-1.svg" width="200"></div>
+                                       src="{% static 'img/github-logo.png'%}" width="200"></div>
         </div>
     </div>
 </div>
@@ -58,10 +59,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4"><img class="img-fluid d-block mx-auto"
-                                       src="https://static.pingendo.com/img-placeholder-1.svg" width="200"></div>
+                                       src="{% static 'img/github-logo.png'%}" width="200"></div>
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
+                    <h2 class="">Experience <small class="text-muted"></small></h2>
                     <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem
                         to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often
                         think with longing.</p>
@@ -75,26 +76,17 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
+                    <h2 class="">So what do I do in my freetime? <small class="text-muted"></small></h2>
                     <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem
                         to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often
                         think with longing.</p>
                 </div>
             </div>
             <div class="col-md-4"><img class="img-fluid d-block mx-auto"
-                                       src="https://static.pingendo.com/img-placeholder-1.svg" width="200"></div>
+                                       src="{% static 'img/github-logo.png'%}" width="200"></div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"
-        style=""></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"
-        style=""></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
-        style=""></script>
-</body>
+
 
 {% endblock %}
