@@ -1,5 +1,120 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
 {% load static %}
 {% block page_content %}
-<h1>Home</h1>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
+
+<body>
+<div class="py-5 text-center text-white h-100 align-items-center d-flex"
+     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(https://static.pingendo.com/cover-bubble-dark.svg);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="mx-auto col-lg-8 col-md-10">
+                <h1 class="display-3 mb-4">Professional Portfolio</h1>
+                <p class="lead mb-5">Has taken possession of my entire soul, like these sweet mornings of spring which I
+                    enjoy with my whole heart. I am alone, and feel the charm of existence.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-3" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="">Check out my recent work </h1>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-12">
+            <p class="lead"> Have a look on my recent work and check out my other projects and articles as well. All
+                feedback is appreciated.</p>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <h3 class="">Recent Project <span class="badge badge-light">New </span></h3><img
+                        class="img-fluid d-block mx-auto" src="https://static.pingendo.com/img-placeholder-1.svg"
+                        width="200" height="200">
+                    <div class="card-body">
+                        <h5 class="">Heading 5</h5>
+                        <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth
+                            seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then I
+                            often think with longing.</p><a class="btn btn-primary"> Read More </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="">Recent blog post <span class="badge badge-light"> New</span></h3><img
+                    class="img-fluid d-block mx-auto" src="https://static.pingendo.com/img-placeholder-1.svg"
+                    width="200" height="200">
+                <div class="card-body">
+                    <h5 class="">Heading 5</h5>
+                    <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem
+                        to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often
+                        think with longing.</p><a class="btn btn-primary"> Read More </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-3 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class=""></h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-1 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="">Social Media</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-3" style="">
+    <div class="container">
+        <div class="row">
+            <!--            https://github.com/VTuri    -->
+            <div class="col-md-3"><a href="https://github.com/VTuri" target="_blank"><img class="img-fluid d-block"
+                                                                                          src="{% static 'img/github-logo.png'%}"
+                                                                                          width="200" height="200"
+                                                                                          title="GitHub"></div>
+            <div class="col-md-3"><a href="https://www.linkedin.com/in/vajkturi/" target="_blank"><img
+                    class="img-fluid d-block"
+                    src="{% static 'img/linkedin-logo.png'%}"
+                    width="200" height="200"
+                    title="LinkedIn"></div>
+            <div class="col-md-3"><a href="https://www.instagram.com/turi.vajk/" target="_blank"><img
+                    class="img-fluid d-block"
+                    src="{% static 'img/instagram-logo.png'%}"
+                    width="200" height="200"
+                    title="Instagram"></div>
+            <div class="col-md-3"><a href="https://medium.com/@turi.vajk" target="_blank"><img class="img-fluid d-block"
+                                                                                               src="{% static 'img/medium-logo.png'%}"
+                                                                                               width="200" height="200"
+                                                                                               title="Medium"></div>
+        </div>
+    </div>
+</div>
+</body>
+
+
 {% endblock %}
