@@ -2,3 +2,4 @@ h_env
 *db.sqlite3
 .idea*
 *__pycache__*
+prod_settings.txt
