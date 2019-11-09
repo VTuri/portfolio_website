@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
 {% block page_content %}
 
 <head>
@@ -11,7 +11,7 @@
 
 <body>
 
-<div class="py-3">
+<div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -29,15 +29,15 @@
                                        src="https://static.pingendo.com/img-placeholder-1.svg" width="200" height="200">
             </div>
             <div class="col-md-8">
-                <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
-                <!--                        <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>-->
-                <p>{{ post.body | slice:"0:300" }}...</p>
+                <h2 style="color:#66fcf1;font-family:'Open Sans'"><a href="{% url 'blog_detail' post.pk%}">{{ post.title
+                    }}</a></h2>
+                <p style="color:#c5c6c7;font-family:'Open Sans'">{{ post.body | slice:"0:300" }}...</p>
 
-                <small>
+                <small style="color:#66fcf1;">
                     {{ post.created_on.date }} |
                     Categories:&nbsp;
                     {% for category in post.categories.all %}
-                    <a href="{% url 'blog_category' category.name %}">
+                    <a style="color:#c5c6c7;font-family:'Open Sans'" href="{% url 'blog_category' category.name %}">
                         {{ category.name }}
                     </a>&nbsp;
                     {% endfor %}
