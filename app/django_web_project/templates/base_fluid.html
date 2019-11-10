@@ -43,13 +43,20 @@
         <div class="row">
             <div class="col-md-12 text-center d-md-flex justify-content-between align-items-center">
                 <ul class="nav d-flex justify-content-center">
-                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item"><a class="nav-link active"
-                                                                                          href="#">Placeholder</a></li>
-                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item"><a class="nav-link" href="#">Placeholder</a>
+                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item">
+                        <a class="nav-link active" href="{% url 'home_index' %}">Home</a>
                     </li>
-                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item"><a class="nav-link" href="#">Placeholder</a>
+                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About Me</a>
                     </li>
-                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item"><a class="nav-link" href="#">Placeholder</a>
+                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item">
+                        <a class="nav-link" href="{% url 'project_index' %}">Projects</a>
+                    </li>
+                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item">
+                        <a class="nav-link" href="{% url 'blog_index' %}">Blog</a>
+                    </li>
+                    <li style="color:#c5c6c7;font-family:'Open Sans'" class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
                 <p style="color:#c5c6c7;font-family:'Open Sans'" class="mb-0 py-1">© 2014-2018 Placeholder. All rights
