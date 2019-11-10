@@ -3,4 +3,3 @@ h_env
 .idea*
 *__pycache__*
 prod_settings.txt
-*.jpg
