@@ -67,39 +67,43 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="col-md-12">
-                    <h3 style="color:#66fcf1;font-family:'Open Sans'" class="">Recent Project <span
-                            class="badge badge-light">New </span></h3>
+                    <h3 style="color:#66fcf1;font-family:'Open Sans'" class="text-center">Recent Project <span
+                            class="badge badge-light">New </span><br></h3>
                     <img
-                            class="img-fluid rounded-circle d-block mx-auto"
-                            src="https://static.pingendo.com/img-placeholder-1.svg"
-                            width="200" height="200">
+                            class="img-fluid img-thumbnail d-block mx-auto"
+                            src="{% static projects.last.image %}"
+                            width="300" height="auto">
                     <div class="card-body">
-                        <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">Heading 5</h5>
-                        <p style="color:#c5c6c7;font-family:'Open Sans'" class="">Paragraph. Then, my friend, when
-                            darkness overspreads my
-                            eyes, and heaven and earth
-                            seem to dwell in my soul and absorb its power, like the form of a beloved mistress, then
-                            I
-                            often think with longing.</p><a class="btn btn-primary"> Read More </a>
+                        <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ projects.last.title }} </h5>
+                        <p style="color:#c5c6c7;font-family:'Open Sans'" class="">
+                            {{ projects.last.description | slice:"0:20" }}
+                        </p>
+                        <a href="{% url 'project_detail' projects.last.pk %}"
+                           class="btn btn-primary">
+                            Read More
+                        </a>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <h3 style="color:#66fcf1;font-family:'Open Sans'" class="">Recent blog post <span
-                        class="badge badge-light"> New</span></h3>
+                <h3 style="color:#66fcf1;font-family:'Open Sans'" class="text-center">Recent blog post <span
+                        class="badge badge-light"> New</span><br></h3>
                 <img
-                        class="img-fluid rounded-circle d-block mx-auto"
+                        class="img-fluid img-thumbnail d-block mx-auto"
                         src="https://static.pingendo.com/img-placeholder-1.svg"
-                        width="200" height="200">
-                <div class="card-body">
-                    <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">Heading 5</h5>
-                    <p style="color:#c5c6c7;font-family:'Open Sans'" class="">Paragraph. Then, my friend, when
-                        darkness
-                        overspreads my eyes,
-                        and heaven and earth seem
-                        to dwell in my soul and absorb its power, like the form of a beloved mistress, then I often
-                        think with longing.</p><a class="btn btn-primary"> Read More </a>
+                        width="300" height="auto">
+                <div class="card-body ">
+                    <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ posts.first.title}}</h5>
+                    <p style="color:#c5c6c7;font-family:'Open Sans'" class="">
+                        {{ posts.0.body | slice:"0:20" }}
+                    </p>
+                    <a href="{% url 'blog_detail' posts.first.pk%}"
+                       class=" btn btn-primary">
+                        Read More
+                    </a>
+
+
                 </div>
             </div>
         </div>
@@ -153,6 +157,8 @@
         </div>
     </div>
 </div>
+
+
 </body>
 
 
