@@ -1,0 +1,20 @@
+Despite adding Postgres, we can still create an independent Docker image for Django as long as the DATABASE environment variable is not set to postgres. To test, build a new image and then run a new container:
+
+$ docker build -f ./app/Dockerfile -t hello_django:latest ./app
+$ docker run -p 8001:8000 \
+    -e "SECRET_KEY=please_change_me" -e "DEBUG=1" -e "DJANGO_ALLOWED_HOSTS=*" \
+    django_website_web python /usr/src/app/manage.py runserver 0.0.0.0:8000
+You should be able to view the welcome page at http://localhost:8001.
+
+
+---------------------------------
+MANAGE.PY :
+https://medium.com/zeitcode/a-simple-recipe-for-django-development-in-docker-bonus-testing-with-selenium-6a038ec19ba5
+code to login : docker-compose exec web sh
+
+---
+Destroy volume:
+docker-compose down -v
+---
+add model to admin:
+https://stackoverflow.com/questions/2984987/model-not-showing-up-in-django-admin#

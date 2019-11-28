@@ -43,20 +43,20 @@ INSTALLED_APPS = [
     'about',
     'contact',
 
-    # Wagtail integration
-    'wagtail.contrib.forms',
-    'wagtail.contrib.redirects',
-    'wagtail.embeds',
-    'wagtail.sites',
-    'wagtail.users',
-    'wagtail.snippets',
-    'wagtail.documents',
-    'wagtail.images',
-    'wagtail.search',
-    'wagtail.admin',
-    'wagtail.core',
-    'modelcluster',
-    'taggit',
+    # # Wagtail integration
+    # 'wagtail.contrib.forms',
+    # 'wagtail.contrib.redirects',
+    # 'wagtail.embeds',
+    # 'wagtail.sites',
+    # 'wagtail.users',
+    # 'wagtail.snippets',
+    # 'wagtail.documents',
+    # 'wagtail.images',
+    # 'wagtail.search',
+    # 'wagtail.admin',
+    # 'wagtail.core',
+    # 'modelcluster',
+    # 'taggit',
 
 ]
 
@@ -69,9 +69,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    # Wagtail integration
-    'wagtail.core.middleware.SiteMiddleware',
-    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    # # Wagtail integration
+    # 'wagtail.core.middleware.SiteMiddleware',
+    # 'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'django_web_project.urls'
@@ -98,11 +98,22 @@ WSGI_APPLICATION = 'django_web_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

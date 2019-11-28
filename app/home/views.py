@@ -14,6 +14,3 @@ def home_index(request):
         "posts": posts,
     }
     return render(request, 'home_index.html', context)
-
-# def home_index(request):
-#     return render(request, 'home_index.html')
