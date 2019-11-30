@@ -3,3 +3,5 @@ django_env
 .idea*
 *__pycache__*
 prod_settings.txt
+.env.prod
+.env.prod.db

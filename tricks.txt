@@ -18,3 +18,11 @@ docker-compose down -v
 ---
 add model to admin:
 https://stackoverflow.com/questions/2984987/model-not-showing-up-in-django-admin#
+
+---
+Docker compose guide:
+https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/#gunicorn
+
+---
+Docker multi stage
+https://stackoverflow.com/questions/53093487/multi-stage-build-in-docker-compose/53101932#53101932
