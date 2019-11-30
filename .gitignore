@@ -5,3 +5,5 @@ django_env
 prod_settings.txt
 .env.prod
 .env.prod.db
+*/__pycache__
+/app/staticfiles/*

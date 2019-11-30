@@ -43,21 +43,6 @@ INSTALLED_APPS = [
     'about',
     'contact',
 
-    # # Wagtail integration
-    # 'wagtail.contrib.forms',
-    # 'wagtail.contrib.redirects',
-    # 'wagtail.embeds',
-    # 'wagtail.sites',
-    # 'wagtail.users',
-    # 'wagtail.snippets',
-    # 'wagtail.documents',
-    # 'wagtail.images',
-    # 'wagtail.search',
-    # 'wagtail.admin',
-    # 'wagtail.core',
-    # 'modelcluster',
-    # 'taggit',
-
 ]
 
 MIDDLEWARE = [
@@ -108,12 +93,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -153,8 +132,8 @@ USE_TZ = True
 STATIC_URL = "/staticfiles/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = "/mediafiles/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -173,4 +152,3 @@ MEDIA_URL = '/media/'
 
 # For development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-

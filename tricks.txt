@@ -10,7 +10,8 @@ You should be able to view the welcome page at http://localhost:8001.
 ---------------------------------
 MANAGE.PY :
 https://medium.com/zeitcode/a-simple-recipe-for-django-development-in-docker-bonus-testing-with-selenium-6a038ec19ba5
-code to login : docker-compose exec web sh
+code to login :
+docker-compose exec web sh
 
 ---
 Destroy volume:
@@ -26,3 +27,20 @@ https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/#
 ---
 Docker multi stage
 https://stackoverflow.com/questions/53093487/multi-stage-build-in-docker-compose/53101932#53101932
+
+---
+Get logs
+docker-compose -f docker-compose.prod.yml logs -f
+
+---
+DB migration
+https://stackoverflow.com/questions/10826266/database-migrations-on-django-production
+
+---
+Compose commands:
+PROD:
+docker-compose -f docker-compose.prod.yml up -d --build
+docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput
+docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear
+
+DEV:
