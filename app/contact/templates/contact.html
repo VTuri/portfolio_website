@@ -1,18 +1,30 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
 {% load static %}
 {% block page_content %}
 {% load widget_tweaks %}
 
-<div class="container">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
 
-    <div class="row">
-        <div class="col-md-offset-3 col-md-6">
-            <h2>Contact Me</h2>
+
+<div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-5">Contact me </h1>
+            </div>
         </div>
     </div>
-    <br>
+</div>
 
-    <form class="form-horizontal" role="form" action="." method="post">
+<div style="font-family:'Open Sans'" class="container">
+
+    <form style="color:#c5c6c7;font-family:'Open Sans'" class="form-horizontal" role="form" action="." method="post">
         {% csrf_token %}
         {% for field in form %}
         {% if field.errors %}
@@ -47,4 +59,5 @@
     </form>
 
 </div>
+
 {% endblock %}

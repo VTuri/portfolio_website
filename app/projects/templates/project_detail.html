@@ -1,18 +1,63 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
 {% load static %}
 
+
 {% block page_content %}
-<h1>{{ project.title }}</h1>
-<div class="row">
-    <div class="col-md-8">
-        <img src="{% static project.image %}" alt="" width="100%">
-    </div>
-    <div class="col-md-4">
-        <h5>About the project:</h5>
-        <p>{{ project.description }}</p>
-        <br>
-        <h5>Technology used:</h5>
-        <p>{{ project.technology }}</p>
+
+<div class="py-3">
+    <div class="container w-100">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color:#66fcf1;font-family:'Open Sans'" class="">Project details</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="color:#45a29e;font-family:'Open Sans'" class="">--{{ project.title }}-- </h3>
+            </div>
+        </div>
     </div>
 </div>
+
+
+<div class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h5 style="color:#c5c6c7;font-family:'Open Sans'">About the project:</h5>
+
+                <p class="" style="color:#c5c6c7;font-family:'Open Sans'">{{ project.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><img class="img-fluid d-block mx-auto" src="{% static project.image_path %}"
+                                        width="400"
+                                        height="200"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="color:#c5c6c7;font-family:'Open Sans'" class="">Technologies used: <span
+                        class="badge badge-light"></span></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div style="color:#c5c6c7;font-family:'Open Sans'" class="col-md-12">
+                <p>- {{ project.technology }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}

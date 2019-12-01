@@ -1,7 +1,6 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
+{% load static %}
 {% block page_content %}
-
-<html>
 
 <head>
     <meta charset="utf-8">
@@ -12,15 +11,18 @@
 </head>
 
 <body>
-<div class="py-3">
+
+<div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="display-4">Display 4</h1>
+                <h1 class="display-5">Blog </h1>
             </div>
         </div>
     </div>
 </div>
+
+{% for post in posts %}
 <div class="py-3">
     <div class="container">
         <div class="row">
@@ -28,29 +30,24 @@
                                        src="https://static.pingendo.com/img-placeholder-1.svg" width="200" height="200">
             </div>
             <div class="col-md-8">
-                <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
-                <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to
-                    dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with
-                    longing.</p>
+                <h2 style="color:#66fcf1;font-family:'Open Sans'"><a href="{% url 'blog_detail' post.pk%}">
+                    {{ post.title}}</a></h2>
+                <p style="color:#c5c6c7;font-family:'Open Sans'">{{ post.body | slice:"0:300" }}...</p>
+
+                <small style="color:#66fcf1;">
+                    {{ post.created_on.date }} |
+                    Categories:&nbsp;
+                    {% for category in post.categories.all %}
+                    <a style="color:#c5c6c7;font-family:'Open Sans'" href="{% url 'blog_category' category.name %}">
+                        {{ category.name }}
+                    </a>&nbsp;
+                    {% endfor %}
+                </small>
             </div>
         </div>
     </div>
 </div>
-<div class="py-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4"><img class="d-block mx-auto img-fluid"
-                                       src="https://static.pingendo.com/img-placeholder-1.svg" width="200" height="200">
-            </div>
-            <div class="col-md-8">
-                <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
-                <p class="">Paragraph. Then, my friend, when darkness overspreads my eyes, and heaven and earth seem to
-                    dwell in my soul and absorb its power, like the form of a beloved mistress, then I often think with
-                    longing.</p>
-            </div>
-        </div>
-    </div>
-</div>
+{% endfor %}
 
 </body>
 
