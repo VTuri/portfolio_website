@@ -7,3 +7,4 @@ prod_settings.txt
 .env.prod.db
 */__pycache__
 app/staticfiles/*
+/app/staticfiles/
