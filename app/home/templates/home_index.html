@@ -12,7 +12,7 @@
 
 <body>
 <div class="py-1 text-center text-white h-100 align-items-center d-flex"
-     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../static/img/header.png);  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url({% static 'img/header.png'%});  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
     <div class="container py-5">
         <div class="row">
             <div class="mx-auto col-lg-8 col-md-10">
@@ -71,7 +71,7 @@
                             class="badge badge-light">New </span><br></h3>
                     <img
                             class="img-fluid img-thumbnail d-block mx-auto"
-                            src="{% static projects.last.image %}"
+                            src="{% static projects.last.image_path %}"
                             width="300" height="auto">
                     <div class="card-body">
                         <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ projects.last.title }} </h5>
