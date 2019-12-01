@@ -1,5 +1,7 @@
 {% extends "base_fluid.html" %}
 {% block page_content %}
+{% load static %}
+
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +12,18 @@
 </head>
 
 
+<div class="py-5 text-center"
+     style="background-image: url({% static 'img/projects_header.png'%}); background-size: cover;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="p-5 mx-auto col-md-8 col-10">
+                <h2 style="color:#66fcf1;font-family:'Open Sans'" class="display-3 mb-4"> Articles </h2>
+                <p class="mb-3 lead" style="color:#c5c6c7;font-family:'Open Sans'">...tech and lifestyle</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
     <div class="container">
         <div class="row">
@@ -18,9 +32,6 @@
             </div>
         </div>
     </div>
-    <!--<div class="col-md-8 offset-md-2">-->
-    <!--    <h1>{{ category | title }}</h1>-->
-    <!--    <hr>-->
     {% for post in posts %}
     <div class="py-3">
         <div class="container">
