@@ -12,18 +12,20 @@
 
 <body>
 
-<div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
-    <div class="container">
+<div class="py-5 text-center"
+     style="background-image: url({% static 'img/projects_header.png'%}); background-size: cover;">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <h1 class="display-5">Blog </h1>
+            <div class="p-5 mx-auto col-md-8 col-10">
+                <h2 style="color:#66fcf1;font-family:'Open Sans'" class="display-3 mb-4"> Articles </h2>
+                <p class="mb-3 lead" style="color:#c5c6c7;font-family:'Open Sans'">...tech and lifestyle</p>
             </div>
         </div>
     </div>
 </div>
 
 {% for post in posts %}
-<div class="py-3">
+<div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4"><img class="d-block mx-auto img-fluid"
@@ -34,7 +36,7 @@
                     {{ post.title}}</a></h2>
                 <p style="color:#c5c6c7;font-family:'Open Sans'">{{ post.body | slice:"0:300" }}...</p>
 
-                <small style="color:#66fcf1;">
+                <small style="color:#66fcf1;font-family:'Open Sans'">
                     {{ post.created_on.date }} |
                     Categories:&nbsp;
                     {% for category in post.categories.all %}
