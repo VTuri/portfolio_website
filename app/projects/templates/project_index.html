@@ -1,22 +1,41 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
 {% load static %}
 {% block page_content %}
-<h1>Projects</h1>
-<div class="row">
-{% for project in projects %}
-    <div class="col-md-4">
-        <div class="card mb-2">
-            <img class="card-img-top" src="{% static project.image %}">
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.description }}</p>
-                <a href="{% url 'project_detail' project.pk %}"
-                   class="btn btn-primary">
-                    Read More
-                </a>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
+
+<div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-5">Projects </h1>
             </div>
         </div>
     </div>
-    {% endfor %}
+</div>
+<div class="container">
+    <div class="row">
+        {% for project in projects %}
+        <div class="col-md-4">
+            <div class="card mb-2">
+                <img class="card-img-top" src="{% static project.image_path %}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    <a href="{% url 'project_detail' project.pk %}"
+                       class="btn btn-primary">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
