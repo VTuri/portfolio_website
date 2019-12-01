@@ -1,20 +1,52 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
 {% block page_content %}
-<div class="col-md-8 offset-md-2">
-    <h1>{{ category | title }}</h1>
-    <hr>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
+
+
+<div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-5">{{ category | title }} </h1>
+            </div>
+        </div>
+    </div>
+    <!--<div class="col-md-8 offset-md-2">-->
+    <!--    <h1>{{ category | title }}</h1>-->
+    <!--    <hr>-->
     {% for post in posts %}
-        <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
-        <small>
-            {{ post.created_on.date }} |&nbsp;
-            Categories:&nbsp;
-            {% for category in post.categories.all %}
-            <a href="{% url 'blog_category' category.name %}">
-                {{ category.name }}
-            </a>&nbsp;
-            {% endfor %}
-        </small>
-        <p>{{ post.body | slice:":400" }}...</p>
+    <div class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><img class="d-block mx-auto img-fluid"
+                                           src="https://static.pingendo.com/img-placeholder-1.svg" width="200"
+                                           height="200">
+                </div>
+                <div class="col-md-8">
+                    <h2 style="color:#66fcf1;font-family:'Open Sans'"><a href="{% url 'blog_detail' post.pk%}">
+                        {{ post.title}}</a></h2>
+                    <p style="color:#c5c6c7;font-family:'Open Sans'">{{ post.body | slice:"0:300" }}...</p>
+
+                    <small style="color:#66fcf1;">
+                        {{ post.created_on.date }} |
+                        Categories:&nbsp;
+                        {% for category in post.categories.all %}
+                        <a style="color:#c5c6c7;font-family:'Open Sans'" href="{% url 'blog_category' category.name %}">
+                            {{ category.name }}
+                        </a>&nbsp;
+                        {% endfor %}
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}
