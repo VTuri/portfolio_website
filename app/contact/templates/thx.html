@@ -1,6 +1,43 @@
-{% extends "base.html" %}
+{% extends "base_fluid.html" %}
 {% load static %}
 {% block page_content %}
-<h1>Thank you!</h1>
+{% load widget_tweaks %}
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Thanks!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
+
+
+<div style="color:#66fcf1;font-family:'Open Sans'" class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <h1 class="shadow-lg text-center">Thank you!</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="font-family:'Open Sans'" class="container">
+
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 "><img class="shadow-lg img-fluid d-block mx-auto"
+                                             src="{% static 'img/thanks.jpeg'%}" width="500"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
