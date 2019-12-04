@@ -35,7 +35,7 @@
             <div class="col-md-8">
                 <h2 style="color:#66fcf1;font-family:'Open Sans'"><a href="{% url 'blog_detail' post.pk%}">
                     {{ post.title}}</a></h2>
-                <p style="color:#c5c6c7;font-family:'Open Sans'">{{ post.body | slice:"0:300" }}...</p>
+                <p style="color:#c5c6c7;font-family:'Open Sans'">{{ post.description | safe | truncatewords:"30" }}</p>
 
                 <small style="color:#66fcf1;font-family:'Open Sans'">
                     {{ post.created_on.date }} |
