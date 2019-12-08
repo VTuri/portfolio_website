@@ -14,13 +14,12 @@
 
 <body style="font-family:'Open Sans'">
 <div class="py-5 text-center"
-     style="background-image: url({% static 'img/about_header.png'%}); background-size: cover;">
+     style="background-image: url({% static 'img/about_header.png'%}); alt='Responsive image';background-position: center center, center center;  background-size: cover, cover; ">
     <div class="container-fluid">
         <div class="row">
             <div class="p-5 mx-auto col-md-8 col-10">
-                <h2 style="color:#66fcf1;font-family:'Open Sans'" class="display-3 mb-4"> Who am I ... </h2>
-                <p class="mb-3 lead" style="color:#c5c6c7;font-family:'Open Sans'">... and why I've created this
-                    site?</p>
+                <h2 class="display-3 mb-4 mx-auto" style="color:#66fcf1;font-family:'Open Sans'"> Who am I? </h2>
+                <p class="mb-3 lead" style="color:#c5c6c7;font-family:'Open Sans'">The person behind this site </p>
             </div>
         </div>
     </div>
@@ -31,14 +30,14 @@
             <div class="col-md-4"><img class="img-fluid d-block mx-auto"
                                        src="{% static 'img/goal-icon.png'%}" width="200"></div>
             <div class="col-md-8">
-                <h2 style="color:#66fcf1;font-family:'Open Sans'" class="">My goals<small class="text-muted"></small>
+                <h2 class="" style="color:#66fcf1;font-family:'Open Sans'">
+                    My goals<small class="text-muted"></small>
                 </h2>
-                <p style="color:#c5c6c7;font-family:'Open Sans'" class="text-justify">As most of the Developers I'd like
-                    to just keep on
-                    learning, so that I can build
-                    awesome applications, which could possibly impact the lives of others. With this site I'd like to
-                    give back
-                    to the community and gather a whole bunch of useful materials for others to learn from </p>
+                <UL class="text-justify" style="color:#c5c6c7;font-family:'Open Sans'">
+                    <LI>As most Developers, I like solving problems and create solutions for underoptimized processes.
+                    <LI>I want to work with newest technologies and document my journey along the way. And that's
+                        exactly what I'll use this website for. ¯\_(ツ)_/¯
+                </UL>
             </div>
         </div>
     </div>
@@ -48,19 +47,18 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2 style="color:#66fcf1;font-family:'Open Sans'" class="">Who am I? <small
-                            class="text-muted"></small></h2>
-                    <p style="color:#c5c6c7;font-family:'Open Sans'" class="text-justify">I was born and raised in
-                        Hungary, Europe. I've moved
-                        to Malta to experience
-                        other cultures as well
-                        I'd like to have an open mind and travelling helps me achieving this :)
-                        So far I have worked as Machine Learning Engineer for a partner company of Deutsche Telekom,
-                        then I started to work as a DevOps Specialist for the biggest telco company in Malta.
-                        I also have an MSc of Electrical Engineering so the statistics and math behind Data Science wont
-                        scare me away!
-
-                    </p>
+                    <h2 class="" style="color:#66fcf1;font-family:'Open Sans'">
+                        Who am I? <small class="text-muted"></small>
+                    </h2>
+                    <UL class="text-justify" style="color:#c5c6c7;font-family:'Open Sans'">
+                        <LI>I was born and raised in Hungary, Europe
+                        <LI>So far I have worked as Machine Learning Engineer for a partner company of Deutsche Telekom,
+                            then I started to work as a DevOps Specialist for the biggest telco company in Malta
+                        <LI>I've moved to Malta to experience other cultures as well, I'd like to have an open mind
+                            and travelling helps me achieving it
+                        <LI>I also have an MSc of Electrical Engineering so the statistics and math behind Data Science
+                            wont scare me away!
+                    </UL>
                 </div>
             </div>
             <div class="col-md-4"><img class="img-fluid d-block mx-auto"
@@ -76,15 +74,19 @@
                                        src="{% static 'img/knowledge-icon.png'%}" width="200"></div>
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2 style="color:#66fcf1;font-family:'Open Sans'" class="">Experience <small
-                            class="text-muted"></small></h2>
-                    <p style="color:#c5c6c7;font-family:'Open Sans'" class="text-justify">So far I have worked on
-                        Machine Learning systems in a
-                        multinational
-                        environment. First as a Data Scientist then as a Machine Learning Engineer. System design always
-                        fascinated me, isn't it cool when you design a complex and robust system for other people to use
-                        during their everyday life? On the other hand, I could just keep on coding all day, in complete
-                        immersion in Flow state .</p>
+                    <h2 class="" style="color:#66fcf1;font-family:'Open Sans'">Experience
+                        <small class="text-muted"></small>
+                    </h2>
+                    <UL class="text-justify" style="color:#c5c6c7;font-family:'Open Sans'">
+                        <LI>So far I have worked on Machine Learning systems in a multinational environment. First as a
+                            Data Scientist then as a Machine Learning Engineer
+                        <LI>At the moment I work as a DevOps Specialist for GO, a maltese telco company, building and
+                            optimizing workflows for in-house software development
+                        <LI>System design always fascinated me, isn't it cool when you design a complex and robust
+                            system for other people to use
+                            during their everyday life?
+                        <LI>On the other hand, I could just keep on coding all day, in complete immersion in Flow state
+                    </UL>
                 </div>
             </div>
         </div>
@@ -95,16 +97,17 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="col-md-12">
-                    <h2 style="color:#66fcf1;font-family:'Open Sans'" class="">Freetime <small
-                            class="text-muted"></small></h2>
-                    <p style="color:#c5c6c7;font-family:'Open Sans'" class="text-justify">When I am not working on
-                        something I try to relax and
-                        recharge as much as
-                        possible. I
-                        like travelling to new places with my girlfriend and meeting new cultures. Trying out the local
-                        foods is the best
-                        way to get a better picture of the way the locals live. :) Other than that I spend my time
-                        playing video games or doing some exercise </p>
+                    <h2 class="" style="color:#66fcf1;font-family:'Open Sans'">Freetime
+                        <small class="text-muted"></small>
+                    </h2>
+                    <UL class="text-justify" style="color:#c5c6c7;font-family:'Open Sans'">
+                        <LI>When I am not working on something I try to relax and recharge as much as possible
+                        <LI>I like travelling to new places with my girlfriend and meeting new cultures. Trying out the
+                            local
+                            foods is the best way to get a better picture of the way the locals live. :)
+                        <LI>I'm trying to keep up-to-date with the latest tech, which requires a lot of research
+                        <LI>Other than that I spend my time playing video games or doing some exercise
+                    </UL>
                 </div>
             </div>
             <div class="col-md-4"><img class="img-fluid d-block mx-auto"
