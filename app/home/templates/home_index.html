@@ -96,7 +96,7 @@
                 <div class="card-body ">
                     <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ posts.first.title}}</h5>
                     <p style="color:#c5c6c7;font-family:'Open Sans'" class="">
-                        {{ posts.0.body | slice:"0:20" }}
+                        {{ posts.first.description }}
                     </p>
                     <a href="{% url 'blog_detail' posts.first.pk%}"
                        class=" btn btn-primary">
