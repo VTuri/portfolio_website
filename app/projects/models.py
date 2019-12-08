@@ -1,9 +1,10 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(default="")
+    body = RichTextUploadingField(default="")
     technology = models.CharField(max_length=20)
-    # image = models.FilePathField(path='/home/app/web/staticfiles/img')
     image_path = models.CharField(max_length=30)

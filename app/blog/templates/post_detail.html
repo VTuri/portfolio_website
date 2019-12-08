@@ -23,7 +23,7 @@
         </a>&nbsp;
         {% endfor %}
     </small>
-    <p style="color:#66fcf1;font-family:'Open Sans'">{{ post.body | linebreaks }}</p>
+    <p>{{ post.body | safe }}</p>
 
 
     <div class="py-5">
