@@ -1,6 +1,9 @@
-from django.core.mail import BadHeaderError, EmailMessage
-from django.shortcuts import render, redirect
+from django.conf import settings
+from django.core.mail import BadHeaderError
+from django.core.mail import send_mail
 from django.http import HttpResponse
+from django.shortcuts import render, redirect
+
 from .forms import ContactForm
 
 
@@ -14,14 +17,21 @@ def contact(request):
             contact_name = form.cleaned_data['contact_name']
             contact_email = form.cleaned_data['contact_email']
             content = form.cleaned_data['content']
+
             try:
-                email = EmailMessage(contact_name,
-                                     content,
-                                     contact_email,
-                                     ["wajkoo.sers@gmail.com"],  # TODO change it for prod
-                                     reply_to=[contact_email]
-                                     )
-                email.send()
+                # email = EmailMessage(contact_name,
+                #                      content,
+                #                      contact_email,
+                #                      ["wajkoo.sers@gmail.com"],
+                #                      reply_to=[contact_email])
+                # email.send()
+                subject = 'PORTFOLIO MESSAGE'
+                message = "CONTACT_NAME: " + contact_name + "\nCONTACT_EMAIL: " + contact_email + "\n\n\n" + \
+                          "CONTENT: \n" + content
+                email_from = settings.EMAIL_HOST_USER
+                recipient_list = ["turi.vajk@gmail.com", ]
+
+                send_mail(subject, message, email_from, recipient_list)
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('thx')
