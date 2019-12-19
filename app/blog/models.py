@@ -5,6 +5,9 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.name
+
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -13,7 +16,10 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField('Category', related_name='posts')
-    image_path = models.CharField(max_length=30, default="")
+    image_path = models.CharField(max_length=30, default="img/default_img.png")
+
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):

@@ -90,11 +90,10 @@
                 <h3 style="color:#66fcf1;font-family:'Open Sans'" class="text-center">Recent blog post <span
                         class="badge badge-light"> New</span><br></h3>
                 <a href="{% url 'blog_detail' posts.first.pk%}">
-
                     <img
                             class="img-fluid img-thumbnail d-block mx-auto"
                             height="auto"
-                            src="https://static.pingendo.com/img-placeholder-1.svg" width="300">
+                            src="{% static posts.first.image_path %}" width="300">
                 </a>
                 <div class="card-body text-center">
                     <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ posts.first.title}}</h5>
