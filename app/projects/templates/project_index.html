@@ -31,14 +31,18 @@
             <div class="col-md-4">
 
                 <div class="card mb-2">
-                    <img class="card-img-top" src="{% static project.image_path %}">
+                    <a href="{% url 'project_detail' project.pk %}">
+                        <img class="card-img-top" src="{% static project.image_path %}">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ project.title }}</h5>
                         <p class="card-text">{{ project.description }}</p>
-                        <a href="{% url 'project_detail' project.pk %}"
-                           class="btn btn-primary">
-                            Read More
-                        </a>
+                        <div class="text-center">
+                            <a class="btn btn-primary"
+                               href="{% url 'project_detail' project.pk %}">
+                                Read More
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

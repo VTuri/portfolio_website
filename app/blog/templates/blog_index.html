@@ -29,8 +29,11 @@
 <div class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4"><img class="d-block mx-auto img-fluid"
-                                       src="https://static.pingendo.com/img-placeholder-1.svg" width="200" height="200">
+            <div class="col-md-4">
+                <a href="{% url 'blog_detail' post.pk%}">
+                    <img class="img-thumbnail mx-auto d-block" height="200" src="{% static post.image_path %}"
+                         width="200">
+                </a>
             </div>
             <div class="col-md-8">
                 <h2 style="color:#66fcf1;font-family:'Open Sans'"><a href="{% url 'blog_detail' post.pk%}">
