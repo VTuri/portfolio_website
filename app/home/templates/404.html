@@ -1,0 +1,41 @@
+{% extends "base_fluid.html" %}
+{% load static %}
+{% block page_content %}
+{% load widget_tweaks %}
+
+<head>
+    <meta charset="utf-8">
+    <{% block title %}Ooops{% endblock %}>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+</head>
+
+
+<div class="container" style="font-family:'Open Sans'">
+
+    <div class="py-5">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12 text-center">
+                    <h1 class="display-1 text-center" style="color:#66fcf1;font-family:'Open Sans'">Sorry!</h1>
+
+                    <h1 class="text-center" style="color:#66fcf1;font-family:'Open Sans'">The page you requested does
+                        not
+                        exist, but here is a cat in a hat!</h1>
+                    <h2 class="text-center" style="color:#66fcf1;font-family:'Open Sans'">¯\_(ツ)_/¯</h2>
+
+                    <div class="col-md-12 "><img class="shadow-lg img-fluid d-block mx-auto"
+                                                 src="{% static 'img/error.gif'%}" width="1000"></div>
+                    <br>
+                    <a class="btn btn-primary "
+                       href="{% url 'home_index' %}">
+                        Return
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

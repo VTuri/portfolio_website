@@ -67,10 +67,12 @@
                 <div class="col-md-12">
                     <h3 style="color:#66fcf1;font-family:'Open Sans'" class="text-center">Recent Project <span
                             class="badge badge-light">New </span><br></h3>
-                    <img
-                            class="img-fluid img-thumbnail d-block mx-auto"
-                            src="{% static projects.last.image_path %}"
-                            width="300" height="auto">
+                    <a href="{% url 'project_detail' projects.last.pk %}">
+                        <img
+                                class="img-fluid img-thumbnail d-block mx-auto"
+                                height="auto"
+                                src="{% static projects.last.image_path %}" width="300">
+                    </a>
                     <div class="card-body text-center">
                         <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ projects.last.title }} </h5>
                         <p style="color:#c5c6c7;font-family:'Open Sans'" class="">
@@ -87,10 +89,12 @@
             <div class="col-md-6">
                 <h3 style="color:#66fcf1;font-family:'Open Sans'" class="text-center">Recent blog post <span
                         class="badge badge-light"> New</span><br></h3>
-                <img
-                        class="img-fluid img-thumbnail d-block mx-auto"
-                        src="https://static.pingendo.com/img-placeholder-1.svg"
-                        width="300" height="auto">
+                <a href="{% url 'blog_detail' posts.first.pk%}">
+                    <img
+                            class="img-fluid img-thumbnail d-block mx-auto"
+                            height="auto"
+                            src="{% static posts.first.image_path %}" width="300">
+                </a>
                 <div class="card-body text-center">
                     <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ posts.first.title}}</h5>
                     <p style="color:#c5c6c7;font-family:'Open Sans'" class="">
