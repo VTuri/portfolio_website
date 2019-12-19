@@ -8,4 +8,4 @@ prod_settings.txt
 */__pycache__
 app/staticfiles/*
 app/staticfiles/
-!app/staticfiles/ckeditor
+!/app/staticfiles/ckeditor
