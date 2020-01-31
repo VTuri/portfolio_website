@@ -1,0 +1,64 @@
+{% extends "base_fluid.html" %}
+{% load static %}
+{% block page_content %}
+{% load widget_tweaks %}
+
+
+<head>
+    <meta charset="utf-8">
+    <{% block title %}Whatson_Result{% endblock %}>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <link href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" rel="stylesheet">
+</head>
+
+<div class="py-1 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color:#66fcf1;font-family:'Open Sans'">Result</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-1 text-center">
+    <div class="container" style="color:#c5c6c7;font-family:'Open Sans'">
+        <div class="row">
+            <div class="col-md-12">
+                <table border="3">
+                    <thead>
+                    <tr>
+                        <th style="background-color:#0b0c10;color:#66fcf1;font-family:'Open Sans'">Date</th>
+                        <th style="background-color:#0b0c10;color:#66fcf1;font-family:'Open Sans'">Event</th>
+                        <th style="background-color:#0b0c10;color:#66fcf1;font-family:'Open Sans'">Location</th>
+                        <th style="background-color:#0b0c10;color:#66fcf1;font-family:'Open Sans'">Venue</th>
+                        <th style="background-color:#0b0c10;color:#66fcf1;font-family:'Open Sans'">Type</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        {% for i in data %}
+
+                        <td>{{ i.Date }}</td>
+                        <td>{{ i.Event }}</td>
+                        <td>{{ i.Location }}</td>
+                        <td>{{ i.Venue }}</td>
+                        <td>{{ i.Type }}</td>
+
+
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

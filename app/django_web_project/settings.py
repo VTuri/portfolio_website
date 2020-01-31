@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'contact',
     'ckeditor',
     'ckeditor_uploader',
+    'whatson_scrape',
 
 ]
 
