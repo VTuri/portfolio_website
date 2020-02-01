@@ -34,7 +34,7 @@ services:
       - web
 
   whatson_scrape:
-    build: /app/whatson_scrape/app
+    build: /root/app/whatson_scrape/app
     ports:
       - 5000:5000
 
