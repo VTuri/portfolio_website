@@ -152,5 +152,7 @@ EMAIL_HOST_USER = 'wajkoo.sers@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 # For development
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
