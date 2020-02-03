@@ -66,7 +66,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Acknowledgments
 
-*https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction Detailed project of a library website
-*https://www.layoutit.com/build
-*https://visme.co/blog/website-color-schemes/
-*https://realpython.com/get-started-with-django-1/
+* https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction Detailed project of a library website
+* https://www.layoutit.com/build
+* https://visme.co/blog/website-color-schemes/
+* https://realpython.com/get-started-with-django-1/
