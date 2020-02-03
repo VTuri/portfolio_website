@@ -13,42 +13,32 @@
 </head>
 
 
-<div class="py-3">
-    <div class="container w-100">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="" style="color:#66fcf1;font-family:'Open Sans'">{{ project.title }}</h1>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="py-3">
+<div class="py-5 ">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <p class="" style="color:#c5c6c7;font-family:'Open Sans'">{{ project.body | safe }}</p>
+            <div class="col-md-8  mx-auto" style="color:#c5c6c7;font-family:'Open Sans'">
+                <h1 style="color:#66fcf1;font-family:'Open Sans'">{{ project.title }}</h1>
+                <p style="color:#c5c6c7;font-family:'Open Sans'">{{ project.body | safe }}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="py-5">
+        <div class="container " style="color:#c5c6c7;font-family:'Open Sans'">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h3 class="">Technologies used: <span
+                            class="badge badge-light"></span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p>- {{ project.technology }}</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<div class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 style="color:#c5c6c7;font-family:'Open Sans'" class="">Technologies used: <span
-                        class="badge badge-light"></span></h3>
-            </div>
-        </div>
-        <div class="row">
-            <div style="color:#c5c6c7;font-family:'Open Sans'" class="col-md-12">
-                <p>- {{ project.technology }}</p>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 {% endblock %}
