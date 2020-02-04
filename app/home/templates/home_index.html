@@ -77,7 +77,7 @@
                     <div class="card-body text-center">
                         <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ projects.last.title }} </h5>
                         <p style="color:#c5c6c7;font-family:'Open Sans'" class="">
-                            {{ projects.last.description | slice:"0:20" }}
+                            {{ projects.last.description }}
                         </p>
                         <a href="{% url 'project_detail' projects.last.pk %}"
                            class="btn btn-primary">
