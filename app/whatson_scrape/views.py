@@ -21,8 +21,9 @@ def whatson_scrape(request):
             to_date = form.cleaned_data['to_date']
 
             response = requests.get(
-                "http://whatson_scrape:5000/scrape/?number={}&from={}&to={}".format(number_of_results, from_date,
-                                                                                    to_date),
+                # Container port is needed not the "host port" from the compose
+                "http://whatson_scraper:5000/scrape/?number={}&from={}&to={}".format(number_of_results, from_date,
+                                                                                     to_date),
                 verify=False,
                 params=request.GET)
 

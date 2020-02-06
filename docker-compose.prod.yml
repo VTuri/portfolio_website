@@ -33,12 +33,11 @@ services:
     depends_on:
       - web
 
-  whatson_scrape:
-    build: /root/app/whatson_scrape/app
-    ports:
-      - 5000:5000
-
 volumes:
   postgres_data:
   static_volume:
   media_volume:
+
+networks:
+  main:
+    driver: bridge
