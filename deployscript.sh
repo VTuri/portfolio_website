@@ -18,6 +18,6 @@ cd ${DIR}
 echo "Get the newest version and restart the containers"
 git pull
 docker-compose -f docker-compose.prod.yml up -d --build
-docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear
+docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear;exit
 exit
 pwd
