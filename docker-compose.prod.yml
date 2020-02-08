@@ -38,6 +38,3 @@ volumes:
   static_volume:
   media_volume:
 
-networks:
-  main:
-    driver: bridge
