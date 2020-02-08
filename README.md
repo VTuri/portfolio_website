@@ -1,6 +1,7 @@
 
 # Portfolio Website
-
+<a href="https://gitlab.com/turi.vajk/portfolio_website/-/commits/master"><img alt="pipeline status" src="https://gitlab.com/turi.vajk/portfolio_website/badges/master/pipeline.svg" /></a>
+<br>
 A website where I can store and deploy my demo applications 
 <br>
 
