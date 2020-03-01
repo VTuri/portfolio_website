@@ -45,3 +45,8 @@ docker-compose -f docker-compose.prod.yml exec web python manage.py collectstati
 docker-compose -f docker-compose.prod.yml exec web python manage.py createsuperuser
 
 DEV:
+docker-compose -f docker-compose.yml up -d --build
+
+
+PostgreSQL backup
+https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database

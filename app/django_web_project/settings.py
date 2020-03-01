@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'whatson_scrape',
+    "demo_connector"
 
 ]
 

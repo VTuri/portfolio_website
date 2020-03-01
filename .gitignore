@@ -8,6 +8,6 @@ prod_settings.txt
 */__pycache__
 app/staticfiles/*
 app/staticfiles/
-
+db_backup/*
 
 
