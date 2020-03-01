@@ -56,3 +56,6 @@ cat db_backup/dump_01-03-2020_20_49_13.sql | docker exec -i db_container psql -U
 -stop container
 -delete volume (if needed, after the current changes I don't see it needed in the future)
 -use the restore command above
+
+Image backup:
+cp -r  app/staticfiles/img/ backup/img
