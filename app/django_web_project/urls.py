@@ -34,5 +34,6 @@ urlpatterns = [
                   path('ckeeditor/', include('ckeditor_uploader.urls')),
                   re_path(r'^favicon\.ico$', favicon_view),
                   path("whatson_scrape/", include("whatson_scrape.urls")),
+                  path("demo_connector/", include("demo_connector.urls")),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
