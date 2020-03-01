@@ -50,5 +50,9 @@ docker-compose -f docker-compose.yml up -d --build
 
 PostgreSQL backup
 https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database
-sed -i  's/hello_django_db_1/hello_django_db_2/g'  db_backup/dump_01-03-2020_20_49_13.sql
-docker cp db_backup/dump_01-03-2020_20_49_13.sql portfolio_website_db_dev_1:/tmp
+cat db_backup/dump_01-03-2020_20_49_13.sql | docker exec -i db_container psql -U user -d database
+
+
+-stop container
+-delete volume (if needed, after the current changes I don't see it needed in the future)
+-use the restore command above
