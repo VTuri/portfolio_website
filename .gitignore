@@ -9,5 +9,5 @@ prod_settings.txt
 app/staticfiles/*
 app/staticfiles/
 db_backup/*
-
-
+.env.dev
+.env.dev.db
