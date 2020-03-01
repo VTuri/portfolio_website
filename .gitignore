@@ -11,3 +11,6 @@ app/staticfiles/
 db_backup/*
 .env.dev
 .env.dev.db
+*.png
+*.jpg
+*.gif
