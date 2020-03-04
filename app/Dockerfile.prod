@@ -19,9 +19,7 @@ RUN apk update \
 
 # lint
 RUN pip install --upgrade pip
-RUN pip install flake8
 COPY . /usr/src/app/
-#RUN flake8 --ignore=E501,F401,E131,E126,E266,E225,W292,W391 .
 
 # install dependencies
 COPY ./requirements.txt .
@@ -56,7 +54,7 @@ RUN apk update && apk add libpq
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip
-RUN pip install --no-cache /wheels/*
+RUN python3 -m pip install --no-cache /wheels/*
 
 # copy entrypoint-prod.sh
 COPY ./entrypoint.prod.sh $APP_HOME
