@@ -6,11 +6,27 @@
 
 <head>
     <meta charset="utf-8">
-    <{% block title %}Whatson_Result{% endblock %}>
+    <{% block title %}Token Predict{% endblock %}>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           type="text/css">
     <link href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" rel="stylesheet">
+
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-1.4.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      Bokeh.embed.embed_item({{plot|safe}});
+    });
+
+
+
+
+
+
+
+
+    </script>
 
 </head>
 
@@ -26,9 +42,11 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="lead" style="color:#c5c6c7;font-family:'Open Sans'"> You have to provide the 3 mandatory data
-                    for the scraper. The result will be all of the event on Malta in the given time period. The source
-                    of the data is the WhatsOn Malta event listing site.
+                <p class="lead" style="color:#c5c6c7;font-family:'Open Sans'"> The ARIMA model was trained on US WoW
+                    token price data. It consists of more than 2 years of entries.
+                    <br><br>
+                    Through this project I've learned a bit about the usage of ARIMA predictor, but the most important
+                    skill that I've acquired is the knowledge on Bokeh and how I can implement custom plots into Django
                 </p>
             </div>
         </div>
@@ -36,7 +54,7 @@
 </div>
 
 
-<div class="py-5">
+<div class="py-3">
     <div class="container">
         <form action="token_predict" class="form-horizontal text-center" method="post" role="form"
               style="color:#c5c6c7;font-family:'Open Sans'">
@@ -76,9 +94,8 @@
     </div>
 </div>
 
-
 {% if data %}
-<div class="py-1 text-center">
+<div class="py-3 text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -89,14 +106,38 @@
 </div>
 
 <div class="py-1 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="plot"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-3 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead" style="color:#c5c6c7;font-family:'Open Sans'"> For the first few days the model returns
+                    realistic values, after that the results won't reflect the real word data
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5 text-center">
     <div class="container" style="color:#c5c6c7;font-family:'Open Sans'">
         <div class="row">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                     <tr style="background-color:#0b0c10;color:#66fcf1;font-family:'Open Sans'">
-                        <th>Date</th>
-                        <th>Event</th>
+                        <th>Day</th>
+                        <th>Price of the token</th>
 
                     </tr>
                     </thead>
@@ -105,7 +146,7 @@
                         {% for i in data %}
 
                         <td>{{ i.day }}</td>
-                        <td>{{ i.prediction }}</td>
+                        <td>{{ i.prediction|stringformat:".2f" }}</td>
 
 
                     </tr>
@@ -116,6 +157,8 @@
         </div>
     </div>
 </div>
+
+
 {% endif %}
 
 

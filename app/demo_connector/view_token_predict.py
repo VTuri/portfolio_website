@@ -1,8 +1,26 @@
+import json
+
 import requests
+from bokeh.embed import json_item
+from bokeh.plotting import figure
 from django.shortcuts import render
 from django.template import RequestContext
 
 from .forms import TokenPredictForm
+
+
+def create_plot(json_response):
+    x = [round(i["day"], 4) for i in json_response]
+    y = [round(i["prediction"], 4) for i in json_response]
+
+    plot = figure(title="test", x_axis_label="x", y_axis_label="y", plot_width=200, plot_height=300,
+                  sizing_mode='stretch_both')
+
+    plot.line(x, y, line_width=2)
+
+    json_plot = json_item(plot, 'plot')
+    stringplot = json.dumps(json_plot)
+    return stringplot
 
 
 def token_predict(request):
@@ -23,13 +41,18 @@ def token_predict(request):
                 params=request.GET)
 
             data = response.json()
+            plot = create_plot(data)
             args = {
                 "data": data,
-                "form": form
+                "form": form,
+                "plot": plot,
             }
         else:
             args = {
                 "form": form
             }
 
-    return render(request, "token_predict.html", args, RequestContext(request))
+    return render(request,
+                  "token_predict.html", args,
+                  RequestContext(request)
+                  )
