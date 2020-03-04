@@ -8,6 +8,9 @@ prod_settings.txt
 */__pycache__
 app/staticfiles/*
 app/staticfiles/
-
-
-
+backup/*
+.env.dev
+.env.dev.db
+*.png
+*.jpg
+*.gif
