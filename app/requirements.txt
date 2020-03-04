@@ -15,6 +15,7 @@ pytz==2019.3
 requests==2.22.0
 six==1.13.0
 sqlparse==0.3.0
+bokeh==1.4.0
 Unidecode==1.1.1
 urllib3==1.25.7
 wagtail==2.7
