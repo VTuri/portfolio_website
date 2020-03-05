@@ -18,6 +18,9 @@ RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev
 RUN apk add make automake gcc g++ subversion python3-dev
 
+RUN apk --no-cache add musl-dev linux-headers g++
+
+
 # lint
 RUN pip install --upgrade pip
 COPY . /usr/src/app/
@@ -52,6 +55,7 @@ WORKDIR $APP_HOME
 
 # install dependencies
 RUN apk update && apk add libpq
+UN apk --no-cache add musl-dev linux-headers g++
 RUN apk add make automake gcc g++ subversion python3-dev
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
