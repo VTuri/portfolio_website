@@ -19,13 +19,12 @@ def home_index(request):
 
 
 def handler404(request, exception, template_name="404.html"):
-    response = render_to_response("404.html")
+    response = render("404.html",)
     response.status_code = 404
     return response
 
 
 def handler500(request, *args, **argv):
-    response = render_to_response('500.html', {},
-                                  context_instance=RequestContext(request))
+    response = render('500.html',)
     response.status_code = 500
     return response
