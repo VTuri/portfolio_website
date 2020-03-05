@@ -1,7 +1,6 @@
 from blog.models import Post
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from django.template import RequestContext
 from projects.models import Project
 
 
