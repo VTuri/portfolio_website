@@ -1,0 +1,61 @@
+Despite adding Postgres, we can still create an independent Docker image for Django as long as the DATABASE environment variable is not set to postgres. To test, build a new image and then run a new container:
+
+$ docker build -f ./app/Dockerfile -t hello_django:latest ./app
+$ docker run -p 8001:8000 \
+    -e "SECRET_KEY=please_change_me" -e "DEBUG=1" -e "DJANGO_ALLOWED_HOSTS=*" \
+    django_website_web python /usr/src/app/manage.py runserver 0.0.0.0:8000
+You should be able to view the welcome page at http://localhost:8001.
+
+
+---------------------------------
+MANAGE.PY :
+https://medium.com/zeitcode/a-simple-recipe-for-django-development-in-docker-bonus-testing-with-selenium-6a038ec19ba5
+code to login :
+docker-compose exec web sh
+
+---
+Destroy volume:
+docker-compose down -v
+---
+add model to admin:
+https://stackoverflow.com/questions/2984987/model-not-showing-up-in-django-admin#
+
+---
+Docker compose guide:
+https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/#gunicorn
+
+---
+Docker multi stage
+https://stackoverflow.com/questions/53093487/multi-stage-build-in-docker-compose/53101932#53101932
+
+---
+Get logs
+docker-compose -f docker-compose.prod.yml logs -f
+
+---
+DB migration
+https://stackoverflow.com/questions/10826266/database-migrations-on-django-production
+
+---
+Compose commands:
+PROD:
+docker-compose -f docker-compose.prod.yml up -d --build
+docker-compose -f docker-compose.prod.yml exec web python manage.py migrate --noinput
+docker-compose -f docker-compose.prod.yml exec web python manage.py collectstatic --no-input --clear
+docker-compose -f docker-compose.prod.yml exec web python manage.py createsuperuser
+
+DEV:
+docker-compose -f docker-compose.yml up -d --build
+
+
+PostgreSQL backup
+https://stackoverflow.com/questions/24718706/backup-restore-a-dockerized-postgresql-database
+cat db_backup/dump_01-03-2020_20_49_13.sql | docker exec -i db_container psql -U user -d database
+
+
+-stop container
+-delete volume (if needed, after the current changes I don't see it needed in the future)
+-use the restore command above
+
+Image backup:
+cp -r  app/staticfiles/img/ backup/img

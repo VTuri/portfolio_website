@@ -1,0 +1,135 @@
+{% extends "base_fluid.html" %}
+{% load static %}
+{% block page_content %}
+{% load widget_tweaks %}
+
+
+<head>
+    <meta charset="utf-8">
+    <{% block title %}Whatson_Result{% endblock %}>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <link href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" rel="stylesheet">
+</head>
+
+
+<div class="py-3" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br><br>
+                <h2 class="text-center" style="color:#66fcf1;font-family:'Open Sans'">WhatsOn Malta Event Scraper </h2>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead" style="color:#c5c6c7;font-family:'Open Sans'"> You have to provide the 3 mandatory data
+                    for the scraper. The result will be all of the event on Malta in the given time period. The source
+                    of the data is the WhatsOn Malta event listing site.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-5">
+    <div class="container">
+        <form action="." class="form-horizontal text-center" method="post" role="form"
+              style="color:#c5c6c7;font-family:'Open Sans'">
+            {%csrf_token%}
+            {% for field in form %}
+            {% if field.errors %}
+            <div class="form-group has-error">
+                <label class=" control-label " for="id_{{ field.name }}">{{ field.label }}</label>
+                <div class="row">
+                    <div class="col-md-3"></div>
+
+                    <div class="col-md-6 text-center ">
+                        {{ field|attr:"class:form-control" }}
+                    </div>
+                    <div class="col-md-3"></div>
+
+                </div>
+            </div>
+
+            {% else %}
+            <div class="form-group text-center">
+                <label class="col-md-3 control-label text-center" for="id_{{ field.name }}">{{ field.label }}</label>
+                <div class="row">
+                    <div class="col-md-3"></div>
+
+                    <div class="col-md-6 text-center">
+                        {{ field|attr:"class:form-control" }}
+                        {% if field.help_text %}
+                        {% endif %}
+                    </div>
+                    <div class="col-md-3"></div>
+
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+            <div class="form-group">
+                <div class="text-center ">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+{% if data %}
+<div class="py-1 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color:#66fcf1;font-family:'Open Sans'">Result</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-1 text-center">
+    <div class="container" style="color:#c5c6c7;font-family:'Open Sans'">
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr style="background-color:#0b0c10;color:#66fcf1;font-family:'Open Sans'">
+                        <th>Date</th>
+                        <th>Event</th>
+                        <th>Location</th>
+                        <th>Venue</th>
+                        <th>Type</th>
+
+                    </tr>
+                    </thead>
+                    <tbody style="color:#c5c6c7;font-family:'Open Sans''">
+                    <tr>
+                        {% for i in data %}
+
+                        <td>{{ i.Date }}</td>
+                        <td>{{ i.Event }}</td>
+                        <td>{{ i.Location }}</td>
+                        <td>{{ i.Venue }}</td>
+                        <td>{{ i.Type }}</td>
+
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

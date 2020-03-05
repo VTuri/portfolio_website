@@ -1,0 +1,54 @@
+{% extends "base_fluid.html" %}
+{% load static %}
+{% block page_content %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+    <{% block title %}Projects{% endblock %}>
+
+</head>
+
+<div class="py-5 text-center"
+     style="background-image: url({% static 'img/projects_header.jpg'%}); alt='Responsive image';background-position: center center, center center;  background-size: cover, cover; ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="p-5 mx-auto  ">
+                <h1 class="display-3 mb-4 " style="color:#66fcf1;font-family:'Open Sans'"> Projects </h1>
+                <p class="mb-3 lead" style="color:#c5c6c7;font-family:'Open Sans'"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-4">
+
+                <div class="card mb-2">
+                    <a href="{% url 'project_detail' project.pk %}">
+                        <img class="card-img-top" height="300" src="{% static project.image_path %}"
+                             width="300">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        <div class="text-center">
+                            <a class="btn btn-primary"
+                               href="{% url 'project_detail' project.pk %}">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

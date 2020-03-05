@@ -1,0 +1,190 @@
+{% extends "base_fluid.html" %}
+{% load static %}
+{% block page_content %}
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=dASAsSevice-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+    <{% block title %}Vajk Turi{% endblock %}>
+
+</head>
+
+<body>
+<div class="py-1 text-center text-white h-100 align-items-center d-flex"
+     style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url({% static 'img/header.png'%});  background-position: center center, center center;  background-size: cover, cover;  background-repeat: repeat, repeat;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="mx-auto col-lg-8 col-md-10">
+
+                <h2 class="display-3 mb-4" style="color:#66fcf1;font-family:'Open Sans'">Welcome</h2>
+
+                <div class="row">
+                    <div class="col-md-4"><img class=" mx-auto img-fluid d-block rounded-circle"
+
+                                               src="{% static 'img/profile.jpg'%}" style=""
+                                               width="200"
+                                               height="200"></div>
+                    <div class="col-md-8">
+                        <p class="lead break text-justify" style="color:#c5c6c7;font-family:'Open Sans'">
+                            My name is
+                            <span style="color: #45a29e"> Vajk Turi</span>
+                            I'm a Machine Learning Engineer and DevOps Specialist.
+                            <br><br>My goal is to further develop my skills with solving challenging problems.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="py-3" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <br><br>
+                <h2 style="color:#66fcf1;font-family:'Open Sans'" class="">Check out my recent work </h2>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="lead" style="color:#c5c6c7;font-family:'Open Sans'"> Have a look on my latest work and
+                    check out my previous projects and articles as well. All feedback is appreciated.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+
+                <h3 class="text-center" style="color:#66fcf1;font-family:'Open Sans'">Recent Project <span
+                        class="badge badge-light">New </span><br></h3>
+                <div class="card mb-2" style="background-color:#0b0c10;">
+
+                    <a href="{% url 'project_detail' projects.last.pk %}">
+
+                        <br>
+                        <img
+                                class="img-fluid img-thumbnail d-block mx-auto"
+                                height="300"
+                                src="{% static projects.last.image_path %}" width="300">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 style="color:#c5c6c7;font-family:'Open Sans'" class="">{{ projects.last.title }} </h5>
+                        <p style="color:#c5c6c7;font-family:'Open Sans'" class="">
+                            {{ projects.last.description }}
+                        </p>
+                        <a href="{% url 'project_detail' projects.last.pk %}"
+                           class="btn btn-primary">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <h3 style="color:#66fcf1;font-family:'Open Sans'" class="text-center">Recent blog post <span
+                        class="badge badge-light"> New</span><br></h3>
+                <div class="card mb-2" style="background-color:#0b0c10;">
+                    <a href="{% url 'blog_detail' posts.first.pk%}">
+                        <br>
+                        <img
+                                class="img-fluid img-thumbnail d-block mx-auto"
+                                height="300"
+                                src="{% static posts.first.image_path %}" width="300">
+                    </a>
+                    <div class="card-body text-center">
+                        <h5 class="" style="color:#c5c6c7;font-family:'Open Sans'">{{ posts.first.title}}</h5>
+                        <p class="" style="color:#c5c6c7;font-family:'Open Sans'">
+                            {{ posts.first.description }}
+                        </p>
+                        <a class=" btn btn-primary"
+                           href="{% url 'blog_detail' posts.first.pk%}">
+                            Read More
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="py-7 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class=""></h1>
+                <br><br><br><br><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="py-1 text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="color:#66fcf1;font-family:'Open Sans'">Social Media</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-3" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 ">
+                <a href="https://github.com/VTuri" target="_blank"><img
+                        class="img-fluid d-block mx-auto py-2"
+                        height="120"
+                        src="{% static 'img/github-logo.png'%}" title="GitHub"
+                        width="120">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="https://www.linkedin.com/in/vajkturi/" target="_blank"><img
+                        class="img-fluid d-block mx-auto py-2"
+                        height="120"
+                        src="{% static 'img/linkedin-logo.png'%}" title="LinkedIn"
+                        width="120">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="https://www.instagram.com/turi.vajk/" target="_blank"><img
+                        class="img-fluid d-block mx-auto py-2"
+                        height="120"
+                        src="{% static 'img/instagram-logo.png'%}" title="Instagram"
+                        width="120">
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="https://medium.com/@turi.vajk" target="_blank"><img
+                        class="img-fluid d-block mx-auto py-2"
+                        height="120"
+                        src="{% static 'img/medium-logo.png'%}" title="Medium"
+                        width="120">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+{% endblock %}

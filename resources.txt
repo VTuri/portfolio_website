@@ -1,0 +1,5 @@
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction Detailed project of a library website
+https://www.layoutit.com/build
+https://visme.co/blog/website-color-schemes/
+
+https://realpython.com/get-started-with-django-1/

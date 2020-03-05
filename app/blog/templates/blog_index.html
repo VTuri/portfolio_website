@@ -1,0 +1,60 @@
+{% extends "base_fluid.html" %}
+{% load static %}
+{% block page_content %}
+
+<head>
+    <{% block title %}Blog{% endblock %}>
+    <meta charset="utf-8">
+    <meta content="width=dASAsSevice-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+</head>
+
+<body>
+
+<div class="py-5 text-center"
+     style="background-image: url({% static 'img/blog_header.png'%}); alt='Responsive image';background-position: center center, center center;  background-size: cover, cover;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="p-5 mx-auto">
+                <h1 class="display-3 mb-4" style="color:#66fcf1;font-family:'Open Sans'"> Articles </h1>
+                <p class="mb-3 lead" style="color:#c5c6c7;font-family:'Open Sans'">Tech and Lifestyle</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for post in posts %}
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="{% url 'blog_detail' post.pk%}">
+                    <img class="img-thumbnail mx-auto d-block" height="200" src="{% static post.image_path %}"
+                         width="200">
+                </a>
+            </div>
+            <div class="col-md-8">
+                <h2 style="color:#66fcf1;font-family:'Open Sans'"><a href="{% url 'blog_detail' post.pk%}">
+                    {{ post.title}}</a></h2>
+                <p style="color:#c5c6c7;font-family:'Open Sans'">{{ post.description | safe | truncatewords:"30" }}</p>
+
+                <small style="color:#66fcf1;font-family:'Open Sans'">
+                    {{ post.created_on.date }} |
+                    Categories:&nbsp;
+                    {% for category in post.categories.all %}
+                    <a style="color:#c5c6c7;font-family:'Open Sans'" href="{% url 'blog_category' category.name %}">
+                        {{ category.name }}
+                    </a>&nbsp;
+                    {% endfor %}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+</body>
+
+{% endblock %}

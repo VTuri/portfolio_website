@@ -1,0 +1,44 @@
+{% extends "base_fluid.html" %}
+{% load static %}
+{% block page_content %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+    <{% block title %}{{ project.title }}{% endblock %}>
+
+</head>
+
+
+<div class="py-5 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8  mx-auto" style="color:#c5c6c7;font-family:'Open Sans'">
+                <h1 style="color:#66fcf1;font-family:'Open Sans'">{{ project.title }}</h1>
+                <p style="color:#c5c6c7;font-family:'Open Sans'">{{ project.body | safe }}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="py-5">
+        <div class="container " style="color:#c5c6c7;font-family:'Open Sans'">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h3 class="">Technologies used: <span
+                            class="badge badge-light"></span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p>{{ project.technology }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

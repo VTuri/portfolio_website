@@ -1,0 +1,16 @@
+django_env
+*db.sqlite3
+.idea*
+*__pycache__*
+prod_settings.txt
+.env.prod
+.env.prod.db
+*/__pycache__
+app/staticfiles/*
+app/staticfiles/
+backup/*
+.env.dev
+.env.dev.db
+*.png
+*.jpg
+*.gif

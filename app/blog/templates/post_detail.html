@@ -1,0 +1,75 @@
+{% extends "base_fluid.html" %}
+{% block page_content %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
+    <{% block title %}{{ post.title }}{% endblock %}>
+
+</head>
+
+
+<div class="py-5 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8  mx-auto" style="color:#c5c6c7;font-family:'Open Sans'">
+                <h1 style="color:#66fcf1;font-family:'Open Sans'">{{ post.title }}</h1>
+                <small style="color:#66fcf1;font-family:'Open Sans'">
+                    {{ post.created_on.date }} |&nbsp;
+                    Categories:&nbsp;
+                    {% for category in post.categories.all %}
+                    <a href="{% url 'blog_category' category.name color:#c5c6c7;font-family:'Open Sans'">
+                        {{ category.name }}
+                    </a>&nbsp;
+                    {% endfor %}
+                </small>
+                <p>{{ post.body | safe }}</p>
+
+
+                <div class="py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <h3 style="color:#66fcf1;font-family:'Open Sans'">Leave a comment:</h3>
+                                <form action="/blog/{{ post.pk }}/" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        {{ form.author }}
+                                    </div>
+                                    <div class="form-group ">
+                                        {{ form.body }}
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h3 style="color:#66fcf1;font-family:'Open Sans'">Comments:</h3>
+                                {% for comment in comments %}
+                                <p>
+                                    On {{comment.created_on.date }}&nbsp;
+                                    <b>{{ comment.author }}</b> wrote:
+                                </p>
+                                <p>{{ comment.body }}</p>
+                                <hr>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
