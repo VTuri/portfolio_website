@@ -66,7 +66,7 @@ RUN pip install --upgrade pip
 
 
 
-RUN pip install --no-cache /wheels/*
+RUN pip install --no-cache --no-binary /wheels/*
 
 # copy entrypoint-prod.sh
 COPY ./entrypoint.prod.sh $APP_HOME
