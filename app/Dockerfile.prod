@@ -53,9 +53,17 @@ WORKDIR $APP_HOME
 # install dependencies
 RUN apk update && apk add libpq
 RUN apk add make automake gcc g++ subversion python3-dev
+
+# Solves: `libjpeg.so.8: cannot open shared object file: No such file or directory`
+#          after `from PIL import Image`
+RUN apk add libjpeg-turbo8
+
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip
+
+
+
 RUN python3 -m pip install --no-cache /wheels/*
 
 # copy entrypoint-prod.sh
