@@ -14,9 +14,13 @@ ENV PYTHONUNBUFFERED 1
 ENV LDFLAGS=-L/usr/lib/x86_64-linux-gnu/
 
 # install psycopg2 dependencies
+
+RUN apk add --update alpine-sdk && \
+            apk add libffi-dev openssl-dev && \
+            apk --no-cache --update add build-base
+            
 RUN apk update \
             && apk add postgresql-dev  \
-            build-essential \
             gcc \
             python3-dev \
             musl-dev \
@@ -61,6 +65,11 @@ RUN mkdir $APP_HOME/mediafiles
 WORKDIR $APP_HOME
 
 # install dependencies
+
+RUN apk add --update alpine-sdk && \
+            apk add libffi-dev openssl-dev && \
+            apk --no-cache --update add build-base
+
 RUN apk update && apk add libpq
 RUN apk add make \ 
             automake \
@@ -74,7 +83,6 @@ RUN apk add make \
 RUN apk add freetype-dev \
             libjpeg-turbo-dev \
             libpng-dev \
-            build-essential
 
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
