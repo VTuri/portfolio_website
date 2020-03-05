@@ -27,7 +27,6 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 # Application definition
-lol = "lol"
 INSTALLED_APPS = [
     'widget_tweaks',
     'django.contrib.admin',
