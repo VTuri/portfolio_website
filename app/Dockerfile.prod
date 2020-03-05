@@ -15,13 +15,8 @@ ENV LDFLAGS=-L/usr/lib/x86_64-linux-gnu/
 
 # install psycopg2 dependencies
 RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev \
-    py-numpy-dev
-    
+    && apk add postgresql-dev gcc python3-dev musl-dev
 RUN apk add make automake gcc g++ subversion python3-dev
-
-RUN apk --no-cache add musl-dev linux-headers g++
-
 
 # lint
 RUN pip install --upgrade pip
@@ -57,7 +52,6 @@ WORKDIR $APP_HOME
 
 # install dependencies
 RUN apk update && apk add libpq
-RUN apk --no-cache add musl-dev linux-headers g++ py-numpy-dev
 RUN apk add make automake gcc g++ subversion python3-dev
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
