@@ -15,8 +15,7 @@ ENV LDFLAGS=-L/usr/lib/x86_64-linux-gnu/
 
 # install psycopg2 dependencies
 RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev
-RUN apk add make automake gcc g++ subversion python3-dev
+    && apk add postgresql-dev gcc python3-dev musl-dev g++ automake make
 
 # lint
 RUN pip install --upgrade pip
@@ -24,7 +23,7 @@ COPY . /usr/src/app/
 
 # install dependencies
 COPY ./requirements.txt .
-RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
+RUN apk add build-base py-pip jpeg-dev zlib-dev
 ENV LIBRARY_PATH=/lib:/usr/lib
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
 
@@ -65,7 +64,7 @@ COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip
 
 
-RUN pip install --no-binary numpy==1.18.1
+RUN pip install --no-cache --no-binary numpy==1.18.1
 RUN pip install --no-cache /wheels/*
 
 # copy entrypoint-prod.sh
