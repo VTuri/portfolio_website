@@ -14,32 +14,18 @@ ENV PYTHONUNBUFFERED 1
 ENV LDFLAGS=-L/usr/lib/x86_64-linux-gnu/
 
 # install psycopg2 dependencies
-
-RUN apk add --update alpine-sdk && \
-            apk add libffi-dev openssl-dev && \
-            apk --no-cache --update add build-base
-            
 RUN apk update \
-            && apk add postgresql-dev  \
-            gcc \
-            python3-dev \
-            musl-dev \
-            g++ \
-            automake \
-            make
+    && apk add postgresql-dev gcc python3-dev musl-dev
+RUN apk add make automake gcc g++ subversion python3-dev
 
 # lint
-#RUN pip install --upgrade pip
+RUN pip install --upgrade pip
 COPY . /usr/src/app/
 
 # install dependencies
 COPY ./requirements.txt .
-RUN apk add build-base \
-        py-pip \
-        jpeg-dev \
-        zlib-dev \ 
-        
-# ENV LIBRARY_PATH=/lib:/usr/lib
+RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
+ENV LIBRARY_PATH=/lib:/usr/lib
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /usr/src/app/wheels -r requirements.txt
 
 
@@ -65,31 +51,12 @@ RUN mkdir $APP_HOME/mediafiles
 WORKDIR $APP_HOME
 
 # install dependencies
-
-RUN apk add --update alpine-sdk && \
-            apk add libffi-dev openssl-dev && \
-            apk --no-cache --update add build-base
-
 RUN apk update && apk add libpq
-RUN apk add make \ 
-            automake \
-            gcc \
-            g++ \
-            subversion \
-            python3-dev
-
-# Solves: `libjpeg.so.8: cannot open shared object file: No such file or directory`
-#          after `from PIL import Image`
-RUN apk add freetype-dev \
-            libjpeg-turbo-dev \
-            libpng-dev \
-
+RUN apk add make automake gcc g++ subversion python3-dev
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
-#RUN pip install --upgrade pip
-
-
-RUN pip install --no-cache /wheels/*
+RUN pip install --upgrade pip
+RUN python3 -m pip install --no-cache /wheels/*
 
 # copy entrypoint-prod.sh
 COPY ./entrypoint.prod.sh $APP_HOME
