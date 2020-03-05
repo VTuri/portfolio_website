@@ -32,7 +32,8 @@
 
                 <div class="card mb-2">
                     <a href="{% url 'project_detail' project.pk %}">
-                        <img class="card-img-top" src="{% static project.image_path %}">
+                        <img class="card-img-top" height="300" src="{% static project.image_path %}"
+                             width="300">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ project.title }}</h5>
