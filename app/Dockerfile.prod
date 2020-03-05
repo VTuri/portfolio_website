@@ -18,7 +18,7 @@ RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev g++ automake make
 
 # lint
-RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
 COPY . /usr/src/app/
 
 # install dependencies
@@ -61,10 +61,10 @@ RUN apk add freetype-dev \
 
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
-RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
 
 
-RUN pip install --no-cache --no-binary :all: numpy==1.18.1 
+#RUN pip install --no-cache --no-binary :all: numpy==1.18.1 
 RUN pip install --no-cache /wheels/*
 
 # copy entrypoint-prod.sh
