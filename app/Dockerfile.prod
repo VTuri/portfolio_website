@@ -65,8 +65,8 @@ COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip
 
 
-
-RUN pip install --no-cache --no-binary /wheels/*
+RUN pip install --no-binary numpy==1.18.1.
+RUN pip install --no-cache /wheels/*
 
 # copy entrypoint-prod.sh
 COPY ./entrypoint.prod.sh $APP_HOME
